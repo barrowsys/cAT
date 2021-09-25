@@ -11,7 +11,8 @@ enable_testing( )
 include_directories( ${PROJECT_SOURCE_DIR}/src )
 
 file( GLOB SRC_FILES src/*.c )
-add_library( cat SHARED ${SRC_FILES} )
+add_library( cat ${SRC_FILES} ) 
+target_include_directories(cat INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
 set_target_properties( cat PROPERTIES VERSION 0.10.1 SOVERSION 1 )
 target_compile_options( cat PRIVATE -Werror -Wall -Wextra -pedantic )
 
